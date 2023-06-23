@@ -1,0 +1,129 @@
+@import url(../css/reset.css);
+
+#wrap {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  .calendar {
+    width: 1050px;
+    margin: 0 auto;
+    .calendar-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      user-select: none;
+      button {
+        width: 90px;
+        border: none;
+        background: #fff;
+        font-size: 40px;
+      }
+      h2 {
+        font-size: 50px;
+        font-weight: bold;
+      }
+    }
+    .calendar-body {
+      user-select: none;
+      .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        gap: 5px;
+        .calendar-date {
+          width: 100%;
+          height: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: none;
+          background: #ffffff80;
+          cursor: pointer;
+          span {
+            font-size: 20px;
+            font-weight: bold;
+          }
+          &.common-date {
+            background: #fff;
+            color: #000;
+          }
+          &.sun {
+            color: #f00;
+          }
+          &.sat {
+            color: rgb(59, 59, 247);
+          }
+          &.other-month {
+            color: #999;
+          }
+          &.selected {
+            background-color: #333;
+            border: 2px solid #fff;
+          }
+          &.has-memo {
+            position: relative;
+            &::after {
+              content: '★';
+              position: absolute;
+              top: 0;
+              left: 50px;
+              width: 30px;
+              height: 30px;
+              color: rgb(246, 255, 0); /* 색상을 변경하려면 여기에 원하는 색상 코드를 입력하세요 */
+            }
+          }
+          
+        }
+      }
+    }
+    .memo-title {
+      width: 100%;
+      margin-top: 10px;
+      span {
+        display: block;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+      .memo-editor {
+        margin-bottom: 10px;
+        textarea {
+          width: 100%;
+          font-size: 20px;
+          padding: 20px 0 0 10px;
+          margin-bottom: 10px;
+          resize: none;
+        }
+        .save-btn {
+          padding: 5px 10px;
+          background: none;
+          color: #fff;
+          cursor: pointer;
+        }
+      }
+    }
+    .memo-viewer {
+      width: 100%;
+      margin-top: 10px;
+      user-select: none;
+      h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 2px solid #fff;
+      }
+      button {
+        padding: 5px 10px;
+        background: none;
+        color: #fff;
+        cursor: pointer;
+        &.edit-btn {
+          margin-right: 10px;
+        }
+        &.delete-btn {}
+      }
+    }
+  }
+}
